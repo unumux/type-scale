@@ -22,7 +22,7 @@ const InputGroupContainer = styled.div`
     margin-bottom: 10px;
 `;
 
-export const VariableForm = props => 
+export const VariableForm = props =>
     <Form className={props.className}>
         {
             props.inputs.map(item => {
@@ -31,7 +31,11 @@ export const VariableForm = props =>
                 );
             })
         }
-        <button onClick={props.calculate}>Calculate</button>
+        <button onClick={() => {
+            let x = [];
+            props.calculate(x)
+        }
+        }>Calculate</button>
     </Form>
 
 export const InputGroup = props =>

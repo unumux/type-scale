@@ -17,29 +17,31 @@ export const VariableTable = props =>
     <Table>
         <thead>
             <tr>
-                <th>Variable</th>
-                <th>Font Size</th>
-                <th>Line Height</th>
+                {
+                    props.columns.map(item => <th key={item.property}>{item.name}</th>)
+                }
             </tr>
         </thead>
         <tbody>
             {
                 props.rows.map(item => {
                     return (
-                        <TableRow variable={item.variable} size={item.size} line={item.lineHeight}/>
+                        <TableRow key={item.id} columns={props.columns} rowData={item}/>
                     )
                 })
             }
         </tbody>
     </Table>
-;
+
 
 export const TableRow = props =>
     <Row>
-        <td>{props.variable}</td>
-        <td>{props.size}</td>
-        <td>{props.line}</td>
+        {
+            props.columns.map(column => {
+                return <td key={column.property}>{props.rowData[column.property]}</td>
+            })
+        }
     </Row>
-;
+
 
 export default { VariableTable, TableRow };

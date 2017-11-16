@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { columnsArray, rowsArray } from "./data/tableData";
 import { VariableForm } from "./VariableForm";
 import { VariableTable } from "./VariableTable";
 
@@ -14,51 +15,6 @@ const StyledVariableForm = styled(VariableForm)`
 const StyledVariableTable = styled(VariableTable)`
   text-align: center;
 `;
-
-let scale = [
-  {
-    variable: `$font-size-xs`,
-    size: 1.2,
-    lineHeight: 1.2
-  },
-  {
-    variable: `$font-size-s`,
-    size: 1.2,
-    lineHeight: 1.2
-  },
-  {
-    variable: `$font-size`,
-    size: 1.2,
-    lineHeight: 1.2
-  },
-  {
-    variable: `$font-size-l`,
-    size: 1.2,
-    lineHeight: 1.2
-  },
-  {
-    variable: `$font-size-xl`,
-    size: 1.2,
-    lineHeight: 1.2
-  },
-  {
-    variable: `$font-size-2xl`,
-    size: 1.2,
-    lineHeight: 1.2
-  },
-  {
-    variable: `$font-size-3xl`,
-    size: 1.2,
-    lineHeight: 1.2
-  },
-  {
-    variable: `$font-size-4xl`,
-    size: 1.2,
-    lineHeight: 1.2
-  },
-];
-
-let x = ["hey", "you"];
 
 class App extends React.Component {
   calculate(e) {
@@ -89,49 +45,6 @@ class App extends React.Component {
     let font2xlLine = +minLineVal + ((maxFontVal - font2xl) * increment);
     let font3xlLine = +minLineVal + ((maxFontVal - font3xl) * increment);
     let font4xlLine = +minLineVal + ((maxFontVal - font4xl) * increment);
-
-    scale = [
-      {
-        variable: `$font-size-xs`,
-        size: fontXs,
-        lineHeight: fontXsLine
-      },
-      {
-        variable: `$font-size-s`,
-        size: fontS,
-        lineHeight: fontSLine
-      },
-      {
-        variable: `$font-size`,
-        size: font,
-        lineHeight: fontLine
-      },
-      {
-        variable: `$font-size-l`,
-        size: fontL,
-        lineHeight: fontLLine
-      },
-      {
-        variable: `$font-size-xl`,
-        size: fontXl,
-        lineHeight: fontXlLine
-      },
-      {
-        variable: `$font-size-2xl`,
-        size: font2xl,
-        lineHeight: font2xlLine
-      },
-      {
-        variable: `$font-size-3xl`,
-        size: font3xl,
-        lineHeight: font3xlLine
-      },
-      {
-        variable: `$font-size-4xl`,
-        size: font4xl,
-        lineHeight: font4xlLine
-      }
-    ];
   }
 
   render() {
@@ -143,7 +56,8 @@ class App extends React.Component {
         >
         </StyledVariableForm>
         <StyledVariableTable
-          rows={scale}
+          columns={columnsArray}
+          rows={rowsArray}
         >
         </StyledVariableTable>
       </div>
