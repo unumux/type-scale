@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
+import { inputsArray } from "./data/formData";
 import { columnsArray, rowsArray } from "./data/tableData";
 import { VariableForm } from "./VariableForm";
 import { VariableTable } from "./VariableTable";
 
 // adjust to have better IDs on the elements produced... maybe an obj with a name and id prop
-const inputsArray = ["Ratio", "Min Font Size", "Max Font Size", "Min Line Height", "Max Line Height"];
+
 
 const StyledVariableForm = styled(VariableForm)`
   background-color: #999;
@@ -51,7 +52,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <StyledVariableForm 
-          inputs={inputsArray} 
+          inputs = {inputsArray}
           calculate={this.calculate}
         >
         </StyledVariableForm>

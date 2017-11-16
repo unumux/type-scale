@@ -27,7 +27,7 @@ export const VariableForm = props =>
         {
             props.inputs.map(item => {
                 return (
-                    <InputGroup name={item} key={item} />
+                    <InputGroup name={item.label} key={item.id} attributes={item.attributes}/>
                 );
             })
         }
@@ -38,9 +38,9 @@ export const VariableForm = props =>
         }>Calculate</button>
     </Form>
 
-export const InputGroup = props =>
+export const InputGroup = props => 
     <InputGroupContainer key={props.name}>
-        <Label htmlFor={props.name}>{props.name}: </Label><Input id={removeSpaces(props.name)} type="number" placeholder="1.0" step="0.1" min="1" max="5"/>
+        <Label htmlFor={props.key}>{props.name}: </Label><Input id={props.key} {...props.attributes}/>
     </InputGroupContainer>
 
 export default { VariableForm, InputGroup };

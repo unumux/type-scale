@@ -10,7 +10,7 @@ const Table = styled.table`
 `;
 
 const Row = styled.tr`
-
+    border: 1px solid grey;
 `;
 
 export const VariableTable = props => 
